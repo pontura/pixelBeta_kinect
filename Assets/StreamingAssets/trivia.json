@@ -1,0 +1,41 @@
+{
+	"data":
+	[
+		{
+			"pregunta":"¿En el estudio de Heise 2017, cómo fue la variabilidad de Degludec vs Glargina U300?",
+			"respuesta_1":"4 veces menor",
+			"respuesta_2":"1 vez menos",
+			"respuesta_3":"No es menor"
+		},
+		{
+			"pregunta":"¿Cuál es la ventana de flexibilidad para la aplicación de insulina degludec?",
+			"respuesta_1":"De 8 a 40 horas",
+			"respuesta_2":"Entre 10 y 72 horas",
+			"respuesta_3":"Más de 24 horas"
+		},
+		{
+			"pregunta":"¿Cómo es la curva de perfil de acción de insulina degludec?",
+			"respuesta_1":"Plana",
+			"respuesta_2":"Con pico de acción",
+			"respuesta_3":"Con picos y valles"
+		},
+		{
+			"pregunta":"¿Còmo se llamó el estudio de seguridad CV de insulina Degludec donde se demostró la no inferioridad en el objetivo primario además de menor riesgo de hipoglucemia vs Glargina U100?",
+			"respuesta_1":"DEVOTE",
+			"respuesta_2":"BEGIN",
+			"respuesta_3":"SWITCH"
+		},
+		{
+			"pregunta":"¿A partir de qué edad se puede usar Insulina Degludec en niños?",
+			"respuesta_1":"1 año",
+			"respuesta_2":"8 años",
+			"respuesta_3":"16 años"
+		},
+		{
+			"pregunta":"¿Qué porcentaje de dosis hay que considerar reducir cuando se cambia desde otra insulina basal de dos dosis diarias o desde insulina Glargina U300?",
+			"respuesta_1":"20%",
+			"respuesta_2":"No hay que considerar",
+			"respuesta_3":"5%"
+		}
+	]
+}

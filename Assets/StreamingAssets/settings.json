@@ -1,0 +1,8 @@
+{
+	"hand_distances": "0.8f",
+	"swimmerSpeed" : "200",
+	"desaceleration" : "1.5f",
+	"triviaTime": "10",
+	"swimTime": "20",
+	"walkerSpeed": "200"
+}
