@@ -20,13 +20,16 @@ public class TriviaContent : MonoBehaviour
         public string respuesta_2;
         public string respuesta_3;
     }
-    void Start()
+    public void Init(int id)
     {
-        StartCoroutine(Load());
+        if(id == 1)
+          StartCoroutine(Load("trivia"));
+        else
+          StartCoroutine(Load("trivia2"));
     }
-    public IEnumerator Load()
+    public IEnumerator Load(string triviaName)
     {
-        string filePath = Path.Combine(Application.streamingAssetsPath, "trivia.json");
+        string filePath = Path.Combine(Application.streamingAssetsPath, triviaName + ".json");
         string dataAsJson;
         print(filePath);
         if (filePath.Contains("://"))

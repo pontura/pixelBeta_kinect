@@ -1,0 +1,41 @@
+{
+	"data":
+	[
+		{
+			"pregunta":"En el estudio LEADER, Victoza® (Liraglutida) redujo significativamente el riesgo de eventos adversos cardiovasculares mayores (MACE) en un",
+			"respuesta_1":"10%",
+			"respuesta_2":"13%",
+			"respuesta_3":"12%"
+		},
+		{
+			"pregunta":"En el estudio LEADER, Victoza® (Liraglutida) redujo significativamente el riesgo de muerte por causas cardiovasculares en un:",
+			"respuesta_1":"22%",
+			"respuesta_2":"15%",
+			"respuesta_3":"19%("
+		},
+		{
+			"pregunta":"En el estudio LEADER, Victoza® (Liraglutida) redujo significativamente el riesgo de eventos renales en un:",
+			"respuesta_1":"22%",
+			"respuesta_2":"19%",
+			"respuesta_3":"15%"
+		},
+		{
+			"pregunta":"En el Programa LEAD, la reducción de HbA 1c promedio con Victoza® 1.8 mg (Liraglutida) fue entre:",
+			"respuesta_1":"1.1 – 1.6%",
+			"respuesta_2":"0.8 – 1%",
+			"respuesta_3":"0.7 – 1.4%"
+		},
+		{
+			"pregunta":"La reducción de hipoglucemia severa a lo largo del estudio LEADER fue del:",
+			"respuesta_1":"31%",
+			"respuesta_2":"25%",
+			"respuesta_3":"15%"
+		},
+		{
+			"pregunta":"¿Se debe suspender o ajustar la dosis de Victoza® (Liraglutida) en pacientes con Enfermedad Renal Crónica con un FG≤ 30ml/min/1.73m 2 ?",
+			"respuesta_1":"No",
+			"respuesta_2":"Sí",
+			"respuesta_3":"A veces"
+		}
+	]
+}

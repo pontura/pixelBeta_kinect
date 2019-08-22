@@ -12,7 +12,6 @@ public class Trivia : MonoBehaviour
     public Text title;
     public UIInteractiveObject[] buttons;
     bool isOn;
-    int totalAnswers;
     public int wrongNum;
     public int winNum;
 
@@ -24,7 +23,12 @@ public class Trivia : MonoBehaviour
         Events.OnButtonClicked += OnButtonClicked;
         Events.OnTimeOut += OnTimeOut;
         Events.OnReset += OnReset;
-        SetOff();        
+        SetOff();
+
+        if(UIManager.Instance.gameType == UIManager.gameTypes.SWIMMER)
+            Data.Instance.GetComponent<TriviaContent>().Init(1);
+        else
+            Data.Instance.GetComponent<TriviaContent>().Init(2);
     }
     void OnDestroy()
     {
@@ -37,12 +41,20 @@ public class Trivia : MonoBehaviour
     {
         wrongNum = 0;
         winNum = 0;
-        totalAnswers = 0;
     }
     void End()
     {
         SetOff();
-        UIManager.Instance.SetState(UIManager.states.SWIM);
+        if (winNum >= 3)
+        {
+            Events.EndTrivia();
+            anim.Play("triviaOff");
+            Events.OnGameOver(UserData.states.WIN);
+        }
+        else
+        {
+            UIManager.Instance.SetState(UIManager.states.SWIM);
+        }
     }
     void SetOff()
     {
@@ -51,7 +63,6 @@ public class Trivia : MonoBehaviour
     void StartTrivia()
     {
         Events.ShowCursor(true);
-        totalAnswers = 0;
         panel.SetActive(true);
         Init();
     }
@@ -98,10 +109,12 @@ public class Trivia : MonoBehaviour
     {
         if (!isOn)
             return;
+
         win = false;
-        totalAnswers++;
         if (button == null)
-            print("timeout");
+        {
+            OnResult(false);
+        }
         else if (button.field.text == data.respuesta_1)
         {
             win = true;
@@ -110,14 +123,8 @@ public class Trivia : MonoBehaviour
         }
         else
         {
-            wrongNum++;
             OnResult(false);
             button.SetResult(false);
-            if(wrongNum >= 3)
-            {
-                GetComponent<WrongPanel>().Init(true);
-                return;
-            }
         }
         Events.SetChronometer(false, 0);
         isOn = false;
@@ -125,38 +132,35 @@ public class Trivia : MonoBehaviour
     }
     IEnumerator Next()
     {
-        yield return new WaitForSeconds(1);
-        if (!win)
+        yield return new WaitForSeconds(0.7f);
+        if (win)
         {
-            GetComponent<WrongPanel>().Init(false);
+            winNum++;
+            GetComponent<WinPanel>().Init();
             Events.EndTrivia();
             anim.Play("triviaOff");
             yield return new WaitForSeconds(2f);
             End();
-        } else
-        if (totalAnswers >= 3)
+        }  else
         {
-            winNum++;
-            Events.EndTrivia();
-            anim.Play("triviaOff");
-            yield return new WaitForSeconds(0.5f);
-            if(winNum >=3)
+            wrongNum++;
+            if (wrongNum < 3)
             {
-                Events.OnGameOver(UserData.states.WIN);
+                GetComponent<WrongPanel>().Init();
+                anim.Play("trivia_change");
+                yield return new WaitForSeconds(2);
+                Init();
+                yield return new WaitForSeconds(0.5f);
+                anim.Play("trivia_appear");
             }
             else
             {
-                End();
+                Events.EndTrivia();
+                anim.Play("triviaOff");
+                Events.OnGameOver(UserData.states.LOSE);
             }
         }
-        else
-        {
-            anim.Play("trivia_change");
-            yield return new WaitForSeconds(1);
-            Init();
-            yield return new WaitForSeconds(0.25f);
-            anim.Play("trivia_appear");
-        }
+        
     }
     public void Shuffle()
     {

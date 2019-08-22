@@ -25,7 +25,7 @@ public class Character : MonoBehaviour
     {
         if (!isOn)
             return;
-        Events.OnGameOver(UserData.states.LOSE);
+       // Events.OnGameOver(UserData.states.LOSE);
     }
     public void Show(bool isOn)
     {
@@ -48,7 +48,7 @@ public class Character : MonoBehaviour
     {
         isOn = true;
         Events.ShowCursor(false);
-        Events.SetChronometer(true, Data.Instance.settings.settingsData.swimTime);
+       // Events.SetChronometer(true, Data.Instance.settings.settingsData.swimTime);
         transform.localPosition = Vector3.zero;
         speed = Data.Instance.settings.settingsData.swimmerSpeed / 10000;        
     }

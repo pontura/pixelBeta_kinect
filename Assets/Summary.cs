@@ -28,7 +28,11 @@ public class Summary : MonoBehaviour
             Win.SetActive(false);
             Lose.SetActive(true);
         }
-        scoreField.text = Utils.FormatNumbers(Data.Instance.userData.score);
+        if (Data.Instance.userData.score == 0)
+            scoreField.text = "0";
+        else
+            scoreField.text = Utils.FormatNumbers(Data.Instance.userData.score);
+
         Invoke("Reset", 12);
     }
 

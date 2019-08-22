@@ -73,7 +73,8 @@ public class Chronometer : MonoBehaviour
             bar.fillAmount = 0;
             center.color = Color.red;       
             Events.OnUIFX("timeout");
-            Events.OnTimeOut();            
+            Events.OnTimeOut();
+            Pause();
         }
     }
 

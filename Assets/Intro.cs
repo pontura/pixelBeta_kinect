@@ -43,8 +43,9 @@ public class Intro : MonoBehaviour
     void Clicked(int id)
     {
         Destroy(kinectManager.gameObject);
-
+        
         if (id==1)
+
             Data.Instance.LoadLevel("Game");
         else
             Data.Instance.LoadLevel("Game2");

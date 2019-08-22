@@ -25,9 +25,11 @@ public class GameStatesManger : MonoBehaviour
         state2.SetActive(false);
         state3.SetActive(false);
 
-        if (winNum >2)
+        if (winNum < 2)
             state1.SetActive(true);
-        else
-            state2.SetActive(true); 
+        else if (winNum == 2)
+            state2.SetActive(true);
+        else if (winNum == 3)
+            state3.SetActive(true);
     }
 }
