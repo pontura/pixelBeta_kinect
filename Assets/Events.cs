@@ -20,5 +20,6 @@ public static class Events {
     public static System.Action<bool> ShowCursor = delegate { };
     public static System.Action<UserData.states> OnGameOver = delegate { };
     public static System.Action OnReset = delegate { };
+    public static System.Action<bool> UseKinect= delegate { };
 }
 

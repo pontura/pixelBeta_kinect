@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -12,6 +13,8 @@ public class Data : MonoBehaviour
     public Animator anim;
     public UserData userData;
     public string levelName;
+    public KinectManager kinect;
+    public Image cursorHand;
 
     public static Data Instance
     {
@@ -48,6 +51,8 @@ public class Data : MonoBehaviour
         triviaAdmin = GetComponent<TriviaAdmin>();
         settings = GetComponent<Settings>();
         userData = GetComponent<UserData>();
+        Events.UseKinect += UseKinect;
+      //  UseKinect(false);
     }
     bool loading;
     public void LoadLevel(string _levelName)
@@ -72,5 +77,11 @@ public class Data : MonoBehaviour
         anim.gameObject.SetActive(false);
         loading = false;
     }
-
+    void UseKinect(bool isOn)
+    {
+        print(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + " ison: " + isOn);
+        kinect.gameObject.SetActive(isOn);
+        kinect.SetState(isOn);
+        cursorHand.enabled = isOn;
+    }
 }

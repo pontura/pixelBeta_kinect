@@ -2559,7 +2559,13 @@ public class KinectManager : MonoBehaviour
 
 		instance = null;
 	}
-
+    public void SetState(bool isOn)
+    {
+        if (!isOn)
+            KinectInterop.CloseSensor(sensorData);
+        else
+            StartKinect();
+    }
 	void OnGUI()
     {
 		if(kinectInitialized)

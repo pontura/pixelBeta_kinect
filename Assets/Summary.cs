@@ -34,11 +34,14 @@ public class Summary : MonoBehaviour
             scoreField.text = Utils.FormatNumbers(Data.Instance.userData.score);
 
         Invoke("Reset", 12);
+
+        Events.UseKinect(false);
     }
 
     void Reset()
     {
-        if(gameType == gameTypes.SWIMMER)
+        Events.UseKinect(true);
+        if (gameType == gameTypes.SWIMMER)
             Data.Instance.LoadLevel("Game");   
         else
             Data.Instance.LoadLevel("Game2");

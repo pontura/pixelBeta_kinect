@@ -17,13 +17,13 @@ public class Tutorial : MonoBehaviour
     bool isOn;
     public GameObject tutorial1;
     public GameObject tutorial2;
-    public KinectManager kinectManager;
+  //  public KinectManager kinectManager;
 
     void Start()
-    {
-       
+    {       
         Events.OnUserStatus += OnUserStatus;
         SetOn();
+        OnUserStatus(true);
     }
     private void OnDestroy()
     {
@@ -37,7 +37,7 @@ public class Tutorial : MonoBehaviour
             SetTutorialState();
         } else
         {
-            Destroy(kinectManager.gameObject);
+           // Destroy(kinectManager.gameObject);
             if(UIManager.Instance.gameType == UIManager.gameTypes.SWIMMER)
                 Data.Instance.LoadLevel("Game");
             else

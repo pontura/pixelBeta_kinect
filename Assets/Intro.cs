@@ -6,7 +6,6 @@ public class Intro : MonoBehaviour
 {
     public GameObject tutorial;
     public GameObject triviaPanel;
-    public KinectManager kinectManager;
 
     void Start()
     {
@@ -41,11 +40,8 @@ public class Intro : MonoBehaviour
         }
     }
     void Clicked(int id)
-    {
-        Destroy(kinectManager.gameObject);
-        
+    {        
         if (id==1)
-
             Data.Instance.LoadLevel("Game");
         else
             Data.Instance.LoadLevel("Game2");

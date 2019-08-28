@@ -7,15 +7,22 @@ public class InputManager : MonoBehaviour
     bool isClicking;
     float delayed = 0.1f;
     float timer;
+    
 
     private void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(Data.Instance.levelName == "VideoPlayer")
+            if (Data.Instance.levelName == "VideoPlayer")
+            {
                 Data.Instance.LoadLevel("GameSelector");
+                Events.UseKinect(true);
+            }
             else
+            {
                 Data.Instance.LoadLevel("VideoPlayer");
+                Events.UseKinect(false);
+            }
         }
        
         if (InteractionManager.Instance == null)
