@@ -11,19 +11,31 @@ public class InputManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0) && Data.Instance.levelName != "GameSelector")
         {
-            if (Data.Instance.levelName == "VideoPlayer")
-            {
-                Data.Instance.LoadLevel("GameSelector");
-                Events.UseKinect(true);
-            }
-            else
-            {
-                Data.Instance.LoadLevel("VideoPlayer");
-                Events.UseKinect(false);
-            }
+            Data.Instance.LoadLevel("GameSelector");
+            Events.UseKinect(true);
         }
+        
+        if (Input.GetKeyDown(KeyCode.Space) && Data.Instance.levelName != "VideoPlayer")
+        { 
+            Data.Instance.LoadLevel("VideoPlayer");
+            Events.UseKinect(false);
+        }
+        
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    if (Data.Instance.levelName == "VideoPlayer")
+        //    {
+        //        Data.Instance.LoadLevel("GameSelector");
+        //        Events.UseKinect(true);
+        //    }
+        //    else
+        //    {
+        //        Data.Instance.LoadLevel("VideoPlayer");
+        //        Events.UseKinect(false);
+        //    }
+        //}
        
         if (InteractionManager.Instance == null)
             return;
