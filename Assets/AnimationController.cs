@@ -77,6 +77,10 @@ public class AnimationController : MonoBehaviour
     }
     public void AddSpeed(float qty)
     {
+        if (UIManager.Instance.gameType == UIManager.gameTypes.SWIMMER)
+            Events.OnUIFX("nada");
+        else
+            Events.OnUIFX("camina");
         speed += qty;
     }
 }

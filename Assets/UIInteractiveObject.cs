@@ -59,10 +59,16 @@ public class UIInteractiveObject : MonoBehaviour
     }
     public void SetResult(bool ok)
     {
-        if(ok)
+        if (ok)
+        {
+            Events.OnUIFX("si");
             imageClicked_Ok.SetActive(true);
+        }
         else
+        {
+            Events.OnUIFX("no");
             imageClicked_Wrong.SetActive(true);
+        }
 
         imageIdle.SetActive(false);
         imageOver.SetActive(false);

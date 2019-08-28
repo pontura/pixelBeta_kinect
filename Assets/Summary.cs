@@ -22,11 +22,13 @@ public class Summary : MonoBehaviour
         {
             Win.SetActive(true);
             Lose.SetActive(false);
+            Events.OnUIFX("gana");
         }
         else
         {
             Win.SetActive(false);
             Lose.SetActive(true);
+            Events.OnUIFX("pierde");
         }
         if (Data.Instance.userData.score == 0)
             scoreField.text = "0";

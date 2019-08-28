@@ -15,6 +15,7 @@ public class WinPanel : MonoBehaviour
     {
         panel.SetActive(true);
         StartCoroutine(Done());
+        
     }
     IEnumerator Done()
     {

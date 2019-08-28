@@ -19,7 +19,7 @@ public class WrongPanel : MonoBehaviour
             return;
         }
         panel.SetActive(true);
-        StartCoroutine(Done());      
+        StartCoroutine(Done());
     }
     IEnumerator Done()
     {
